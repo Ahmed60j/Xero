@@ -1,5 +1,8 @@
 (() => {
-	const socket = io();
+	const serverUrl =
+		(window.SERVER_URL && window.SERVER_URL.trim()) ||
+		(location.protocol === 'capacitor:' ? 'http://10.0.2.2:3000' : undefined);
+	const socket = io(serverUrl);
 	let currentRoom = null;
 	let myId = null;
 
