@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Chat</title>
+	<style>
+		body { font-family: system-ui, Arial; margin: 0; background: #0b141a; color: #e9edef; }
+		header { padding: 12px; background: #202c33; display: flex; gap: 8px; align-items: center; }
+		input, button { padding: 8px; border-radius: 6px; border: none; }
+		#room { width: 160px; }
+		#name { flex: 1; }
+		main { display: grid; grid-template-rows: auto 1fr auto; height: calc(100vh - 52px); }
+		#messages { padding: 12px; overflow: auto; }
+		#messages .m { margin: 8px 0; max-width: 70%; padding: 8px 10px; background: #202c33; border-radius: 8px; }
+		#messages .me { background: #005c4b; margin-left: auto; }
+		#composer { display: flex; gap: 8px; padding: 12px; background: #111b21; }
+		#presence { padding: 6px 12px; font-size: 12px; color: #8696a0; }
+	</style>
+</head>
+<body>
+	<header>
+		<input id="room" placeholder="Room" />
+		<input id="name" placeholder="Your name" />
+		<button id="join">Join</button>
+	</header>
+	<div id="presence"></div>
+	<main>
+		<div id="messages"></div>
+		<div id="composer">
+			<input id="text" placeholder="Type a message" />
+			<button id="send">Send</button>
+		</div>
+	</main>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/client.js"></script>
+</body>
+</html>
